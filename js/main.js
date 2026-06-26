@@ -154,7 +154,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const name    = form.querySelector('[name="name"]').value.trim();
       const email   = form.querySelector('[name="email"]').value.trim();
-      const subject = form.querySelector('[name="subject"]').value;
+      const subjectSelect = form.querySelector('[name="subject"]');
+      const subjectValue  = subjectSelect.value;
+      const subjectLabel  = subjectValue
+        ? subjectSelect.options[subjectSelect.selectedIndex].textContent
+        : 'General Enquiry';
       const message = form.querySelector('[name="message"]').value.trim();
 
       // Validation
@@ -175,12 +179,13 @@ document.addEventListener('DOMContentLoaded', () => {
           EMAILJS_SERVICE_ID,
           EMAILJS_TEMPLATE_ID,
           {
-            from_name   : name,
-            from_email  : email,
-            subject     : subject || 'General Enquiry',
-            message     : message,
-            reply_to    : email,
-            to_name     : 'Value-flow Team',
+            from_name    : name,
+            from_email   : email,
+            subject      : subjectLabel,
+            message      : message,
+            reply_to     : email,
+            to_name      : 'Value-flow Team',
+            submitted_at : new Date().toLocaleString('en-GB', { dateStyle: 'medium', timeStyle: 'short' }),
           },
           EMAILJS_PUBLIC_KEY
         );
