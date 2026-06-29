@@ -3,7 +3,7 @@
    Design system: 8px grid, Stripe/Linear/Notion-style SaaS UI
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
 
 :root {
   /* Color system */
@@ -25,8 +25,8 @@
   --shadow-lg: 0 10px 25px -5px rgba(15,23,42,0.08), 0 8px 10px -6px rgba(15,23,42,0.04);
 
   /* Typography */
-  --font-display: 'Plus Jakarta Sans', sans-serif;
-  --font-body: 'Inter', sans-serif;
+  --font-display: 'Manrope', sans-serif;
+  --font-body: 'IBM Plex Sans', sans-serif;
 
   /* 8px spacing grid */
   --sp-1: 8px;
@@ -59,6 +59,26 @@ body {
 
 img { max-width: 100%; display: block; }
 a { color: inherit; }
+
+/* ---------- TYPOGRAPHY HIERARCHY (Manrope headings / IBM Plex Sans body) ---------- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  color: var(--primary);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+}
+h1 { font-size: clamp(2.6rem, 4.6vw, 3.5rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; } /* 48–56px */
+h2 { font-size: clamp(2.25rem, 3.2vw, 2.5rem); font-weight: 700; line-height: 1.2; }                          /* 36–40px */
+h3 { font-size: clamp(1.75rem, 2.4vw, 2rem); font-weight: 700; line-height: 1.25; }                           /* 28–32px */
+h4 { font-size: clamp(1.375rem, 1.6vw, 1.5rem); font-weight: 600; line-height: 1.3; }                         /* 22–24px */
+h5, h6 { font-size: 1rem; font-weight: 600; letter-spacing: -0.005em; }
+
+p, label, input, textarea, select, button, a, li, span {
+  font-family: var(--font-body);
+}
+p { font-size: 1.0625rem; line-height: 1.75; color: var(--secondary); } /* ~17px, within 16-18px range */
+small, .text-small { font-size: 0.875rem; line-height: 1.6; } /* 14px */
 
 #bg-canvas {
   position: absolute; top: 0; left: 0; width: 100%; height: 100%;
@@ -165,14 +185,14 @@ a { color: inherit; }
 .hero-tag-dot { width: 6px; height: 6px; background: var(--success); border-radius: 50%; flex-shrink: 0; }
 
 .hero-h1 {
-  font-family: var(--font-display); font-size: clamp(2.2rem,4.6vw,4.2rem);
-  font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; color: var(--primary);
+  font-family: var(--font-display); font-size: clamp(2.6rem,4.6vw,3.5rem);
+  font-weight: 800; line-height: 1.12; letter-spacing: -0.02em; color: var(--primary);
   margin-bottom: var(--sp-3); opacity: 0; animation: fadeUp 0.6s 0.2s ease forwards;
 }
 .hero-h1 .line-accent { color: var(--accent); }
 
 .hero-p {
-  font-size: 1.05rem; color: var(--text-muted); line-height: 1.75; max-width: 480px;
+  font-size: 1.125rem; color: var(--text-muted); line-height: 1.75; max-width: 480px;
   margin-bottom: var(--sp-4); opacity: 0; animation: fadeUp 0.6s 0.3s ease forwards;
 }
 
@@ -197,7 +217,7 @@ a { color: inherit; }
 
 .hero-stats { display: flex; gap: var(--sp-4); margin-top: var(--sp-5); flex-wrap: wrap; opacity: 0; animation: fadeUp 0.6s 0.5s ease forwards; }
 .stat-num { font-family: var(--font-display); font-size: 1.6rem; font-weight: 700; color: var(--primary); line-height: 1; }
-.stat-label { font-size: 0.78rem; color: var(--text-muted); margin-top: 4px; }
+.stat-label { font-size: 0.875rem; color: var(--text-muted); margin-top: 4px; }
 
 .hero-stores { display: flex; gap: var(--sp-2); margin-top: var(--sp-3); flex-wrap: wrap; }
 .hero-stores img { height: 38px; border-radius: var(--radius-sm); transition: transform 0.2s ease; }
@@ -233,10 +253,10 @@ section { position: relative; z-index: 2; }
   text-transform: uppercase; color: var(--accent); margin-bottom: var(--sp-2);
 }
 .section-h2 {
-  font-family: var(--font-display); font-size: clamp(1.6rem,3vw,2.6rem); font-weight: 700;
-  letter-spacing: -0.015em; line-height: 1.2; margin-bottom: var(--sp-3); color: var(--primary);
+  font-family: var(--font-display); font-size: clamp(2.25rem,3.2vw,2.5rem); font-weight: 700;
+  letter-spacing: -0.015em; line-height: 1.25; margin-bottom: var(--sp-3); color: var(--primary);
 }
-.section-p { color: var(--text-muted); font-size: 1rem; line-height: 1.75; max-width: 560px; }
+.section-p { color: var(--text-muted); font-size: 1.0625rem; line-height: 1.75; max-width: 560px; }
 .section-p.centered { margin: 0 auto; text-align: center; }
 .eyebrow-sub {
   font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--secondary);
@@ -322,8 +342,8 @@ section { position: relative; z-index: 2; }
   display: flex; align-items: center; justify-content: center; margin-bottom: var(--sp-2); color: var(--accent);
 }
 .feat-icon svg { width: 20px; height: 20px; }
-.feat-card h4 { font-family: var(--font-display); font-size: 1rem; font-weight: 700; margin-bottom: var(--sp-1); color: var(--primary); }
-.feat-card p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; }
+.feat-card h4 { font-family: var(--font-display); font-size: 1.375rem; font-weight: 600; line-height: 1.3; margin-bottom: var(--sp-1); color: var(--primary); }
+.feat-card p { font-size: 0.9375rem; color: var(--text-muted); line-height: 1.65; }
 
 /* PRICING */
 .pricing-header { text-align: center; margin-bottom: var(--sp-6); }
@@ -345,7 +365,7 @@ section { position: relative; z-index: 2; }
 .price-amount { font-family: var(--font-display); font-size: 2rem; font-weight: 800; line-height: 1; color: var(--primary); }
 .price-amount sup { font-size: 0.95rem; vertical-align: top; margin-top: 6px; display: inline-block; }
 .price-amount small { font-size: 1rem; font-weight: 600; color: var(--text-muted); }
-.price-period { font-size: 0.78rem; color: var(--text-muted); margin: 6px 0 var(--sp-3); }
+.price-period { font-size: 0.875rem; color: var(--text-muted); margin: 6px 0 var(--sp-3); }
 .price-feats { list-style: none; display: flex; flex-direction: column; gap: 10px; }
 .price-feats li { display: flex; align-items: center; gap: 8px; font-size: 0.82rem; color: var(--text-muted); }
 .price-feats li.yes { color: var(--primary); font-weight: 500; }
@@ -369,12 +389,12 @@ section { position: relative; z-index: 2; }
   display: flex; align-items: center; justify-content: center; color: var(--accent); flex-shrink: 0;
 }
 .contact-info-item h5 { font-size: 0.88rem; font-weight: 700; margin-bottom: 2px; color: var(--primary); }
-.contact-info-item p { font-size: 0.88rem; color: var(--text-muted); }
+.contact-info-item p { font-size: 0.875rem; color: var(--text-muted); }
 
 .contact-form { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: var(--sp-4); box-shadow: var(--shadow-sm); }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-2); margin-bottom: var(--sp-2); }
 .form-group { margin-bottom: var(--sp-2); }
-.form-group label { display: block; font-size: 0.78rem; font-weight: 600; color: var(--secondary); margin-bottom: 6px; }
+.form-group label { display: block; font-size: 0.875rem; font-weight: 600; color: var(--secondary); margin-bottom: 6px; }
 .form-control {
   width: 100%; padding: 12px 14px; background: var(--bg); border: 1px solid var(--border);
   border-radius: var(--radius-sm); color: var(--primary); font-family: var(--font-body);
@@ -391,14 +411,14 @@ textarea.form-control { resize: vertical; min-height: 110px; }
 }
 .form-submit:hover { background: var(--accent-hover); transform: translateY(-2px); box-shadow: var(--shadow-md); }
 .form-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none !important; }
-.form-msg { margin-top: var(--sp-2); font-size: 0.88rem; padding: 12px 14px; border-radius: var(--radius-sm); display: none; }
+.form-msg { margin-top: var(--sp-2); font-size: 0.875rem; padding: 12px 14px; border-radius: var(--radius-sm); display: none; }
 .form-msg.success { background: var(--success-soft); border: 1px solid rgba(16,185,129,0.3); color: #047857; display: block; }
 .form-msg.error { background: rgba(220,50,50,0.08); border: 1px solid rgba(220,50,50,0.25); color: #B91C1C; display: block; }
 
 /* NEWSLETTER */
 #newsletter { background: var(--primary); padding: var(--sp-6) 0; }
 .newsletter-inner { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-3); flex-wrap: wrap; }
-.newsletter-inner h3 { font-family: var(--font-display); font-size: clamp(1.05rem,2.2vw,1.35rem); font-weight: 700; max-width: 380px; flex: 1; color: #fff; }
+.newsletter-inner h3 { font-family: var(--font-display); font-size: clamp(1.75rem,2.4vw,2rem); font-weight: 700; line-height: 1.25; max-width: 420px; flex: 1; color: #fff; }
 .newsletter-form-wrap { display: flex; gap: var(--sp-2); flex-wrap: wrap; flex: 1; min-width: 260px; }
 .newsletter-input {
   padding: 13px 16px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
@@ -424,12 +444,12 @@ footer { background: var(--card); border-top: 1px solid var(--border); padding: 
   50% { box-shadow: 0 0 0 8px rgba(13,148,136,0.06); }
 }
 .footer-logo-text { font-family: var(--font-display); font-size: 0.95rem; font-weight: 800; color: var(--primary); }
-.footer-desc { font-size: 0.85rem; color: var(--text-muted); margin-top: var(--sp-1); max-width: 260px; line-height: 1.6; }
+.footer-desc { font-size: 0.875rem; color: var(--text-muted); margin-top: var(--sp-1); max-width: 260px; line-height: 1.6; }
 .footer-links-list { display: flex; gap: var(--sp-3); flex-wrap: wrap; list-style: none; }
-.footer-links-list a { font-size: 0.85rem; color: var(--text-muted); text-decoration: none; transition: color 0.2s; white-space: nowrap; }
+.footer-links-list a { font-size: 0.875rem; color: var(--text-muted); text-decoration: none; transition: color 0.2s; white-space: nowrap; }
 .footer-links-list a:hover { color: var(--accent); }
 .footer-bottom { display: flex; align-items: center; justify-content: space-between; padding-top: var(--sp-2); flex-wrap: wrap; gap: var(--sp-2); }
-.footer-copy { font-size: 0.82rem; color: var(--text-muted); }
+.footer-copy { font-size: 0.875rem; color: var(--text-muted); }
 .footer-copy span { color: var(--accent); font-weight: 600; }
 .footer-store-img { height: 26px; border-radius: 4px; opacity: 0.7; transition: opacity 0.2s; }
 .footer-store-img:hover { opacity: 1; }

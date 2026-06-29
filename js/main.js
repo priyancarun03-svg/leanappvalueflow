@@ -154,6 +154,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const name    = form.querySelector('[name="name"]').value.trim();
       const email   = form.querySelector('[name="email"]').value.trim();
+      const phone   = form.querySelector('[name="phone"]').value.trim();
+      const company = form.querySelector('[name="company"]').value.trim();
       const subjectSelect = form.querySelector('[name="subject"]');
       const subjectValue  = subjectSelect.value;
       const subjectLabel  = subjectValue
@@ -181,6 +183,8 @@ document.addEventListener('DOMContentLoaded', () => {
           {
             from_name    : name,
             from_email   : email,
+            phone        : phone   || 'Not provided',
+            company      : company || 'Not provided',
             subject      : subjectLabel,
             message      : message,
             reply_to     : email,
