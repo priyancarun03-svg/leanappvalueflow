@@ -13,7 +13,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-  <!-- EmailJS SDK -->
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
@@ -26,33 +25,74 @@
 </div>
 
 <!-- HEADER -->
-<header class="site-header">
-  <nav class="nav-inner">
+<div class="header-shell">
+  <header class="site-header">
+    <nav class="nav-inner">
+      <a href="#" class="nav-logo">
+        <span class="nav-logo-icon">L</span>
+        <span class="nav-logo-text">LEAN<span class="text-accent">APP</span></span>
+      </a>
+
+      <ul class="nav-links">
+        <li>
+          <button id="lang-toggle" class="lang-btn" data-lang="sv" aria-label="Switch language">
+            <span id="lang-flag-img" class="lang-flag-emoji">🇸🇪</span>
+            
+            <span class="lang-label" data-i18n="nav_lang_label">Svenska</span>
+            <svg class="lang-caret" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+        </li>
+        <li><a href="#rsv" data-i18n="nav_rsv">RSV</a></li>
+        <li><a href="#why-lean" data-i18n="nav_why">Why Lean</a></li>
+        <li><a href="#features" data-i18n="nav_features">Features</a></li>
+        <li><a href="#pricing" data-i18n="nav_pricing">Pricing</a></li>
+        <li><a href="#about" data-i18n="nav_about">About Us</a></li>
+      </ul>
+
+      <a href="#contact" class="nav-cta" data-i18n="nav_support">Get Support <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+
+      <div class="nav-burger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </div>
+    </nav>
+  </header>
+</div>
+
+<!-- MOBILE MENU OVERLAY -->
+<div class="mobile-menu" id="mobile-menu">
+  <div class="mobile-menu-top">
     <a href="#" class="nav-logo">
-      <img src="image/top picture.png" alt="LEAN APP Logo" class="nav-logo-icon">
+      <span class="nav-logo-icon">L</span>
       <span class="nav-logo-text">LEAN<span class="text-accent">APP</span></span>
     </a>
-
-    <ul class="nav-links">
-      <li>
-        <button id="lang-toggle" class="lang-btn" data-lang="sv" aria-label="Switch language">
-          <img id="lang-flag-img" src="image/flag_sv.png" alt="Svenska" class="lang-flag-img">
-          <span class="lang-label" data-i18n="nav_lang_label">Svenska</span>
-        </button>
-      </li>
-      <li><a href="#rsv" data-i18n="nav_rsv">RSV</a></li>
-      <li><a href="#why-lean" data-i18n="nav_why">Why Lean</a></li>
-      <li><a href="#features" data-i18n="nav_features">Features</a></li>
-      <li><a href="#pricing" data-i18n="nav_pricing">Pricing</a></li>
-      <li><a href="#about" data-i18n="nav_about">About Us</a></li>
-      <li><a href="#contact" class="nav-cta" data-i18n="nav_support">Get Support</a></li>
-    </ul>
-
-    <div class="nav-burger" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
+    <div class="mobile-menu-close" id="mobile-menu-close">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
     </div>
-  </nav>
-</header>
+  </div>
+
+  <button id="lang-toggle-mobile" class="lang-btn lang-btn-mobile" data-lang="sv">
+    <span class="lang-flag-emoji">🇸🇪</span>
+    <span class="lang-label" data-i18n="nav_lang_label">Svenska</span>
+    <svg class="lang-caret" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+  </button>
+
+  <ul class="mobile-menu-links">
+    <li><a href="#rsv"><span class="mm-ic">▤</span><span data-i18n="nav_rsv">RSV</span></a></li>
+    <li><a href="#why-lean"><span class="mm-ic">▤</span><span data-i18n="nav_why">Why Lean</span></a></li>
+    <li><a href="#features"><span class="mm-ic">▤</span><span data-i18n="nav_features">Features</span><svg class="mm-chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 6l6 6-6 6"/></svg></a></li>
+    <li><a href="#pricing"><span class="mm-ic">▤</span><span data-i18n="nav_pricing">Pricing</span></a></li>
+    <li><a href="#about"><span class="mm-ic">▤</span><span data-i18n="nav_about">About Us</span></a></li>
+  </ul>
+
+  <a href="#contact" class="btn-primary mobile-menu-cta" data-i18n="nav_support">Get Support <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+
+  <div class="mobile-menu-social">
+    <a href="#" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.85 0-2.14 1.45-2.14 2.94v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a>
+    <a href="#" aria-label="Twitter"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.49-1.75.85-2.72 1.04A4.28 4.28 0 0016.11 4c-2.37 0-4.29 1.92-4.29 4.29 0 .34.04.67.11.98A12.16 12.16 0 013 4.9a4.28 4.28 0 001.33 5.72 4.27 4.27 0 01-1.94-.54v.05c0 2.08 1.48 3.82 3.44 4.21a4.3 4.3 0 01-1.93.07 4.29 4.29 0 004.01 2.98A8.6 8.6 0 012 19.54a12.13 12.13 0 006.56 1.92c7.88 0 12.2-6.53 12.2-12.2 0-.19 0-.37-.01-.56A8.72 8.72 0 0022.46 6z"/></svg></a>
+    <a href="#" aria-label="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.19a3.02 3.02 0 00-2.12-2.14C19.51 3.5 12 3.5 12 3.5s-7.51 0-9.38.55A3.02 3.02 0 00.5 6.19 31.6 31.6 0 000 12a31.6 31.6 0 00.5 5.81 3.02 3.02 0 002.12 2.14c1.87.55 9.38.55 9.38.55s7.51 0 9.38-.55a3.02 3.02 0 002.12-2.14A31.6 31.6 0 0024 12a31.6 31.6 0 00-.5-5.81zM9.75 15.5v-7l6.25 3.5-6.25 3.5z"/></svg></a>
+  </div>
+  <p class="mobile-menu-copy" data-i18n="footer_copy">© 2018 value-flow.se — All Rights Reserved</p>
+</div>
 
 <!-- HERO -->
 <section id="hero">
@@ -78,6 +118,7 @@
         <a href="https://itunes.apple.com/in/app/value-lean/id1347795759?mt=8" class="btn-primary" target="_blank">
           <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98l-.09.06c-.22.15-2.21 1.3-2.19 3.87.03 3.07 2.7 4.09 2.73 4.1l-.09.15zM13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
           <span data-i18n="hero_btn_apple">App Store</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
         <a href="https://play.google.com/store/apps/details?id=com.leanvaluestream.app" class="btn-ghost" target="_blank">
           <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M3.18 23.76c.38.21.82.22 1.22.04L14.64 12 4.4.2C4 .02 3.56.03 3.18.24 2.41.69 2 1.58 2 2.54v18.92c0 .96.41 1.85 1.18 2.3zM16.54 9.9l2.31-2.31-9.77-5.47 7.46 7.78zM5.32 22.88l9.77-5.47-2.31-2.31-7.46 7.78zM22.1 10.82l-2.53-1.42-2.6 2.6 2.6 2.6 2.56-1.44c.73-.41 1.18-1.16 1.18-1.96 0-.79-.45-1.55-1.21-1.38z"/></svg>
@@ -86,16 +127,31 @@
       </div>
       <div class="hero-stats">
         <div class="stat-item">
-          <div class="stat-num">4+</div>
-          <div class="stat-label" data-i18n="stat_modules">Modules</div>
+          <div class="stat-ic">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="1" width="6" height="6" rx="1"/><rect x="9" y="1" width="6" height="6" rx="1"/><rect x="1" y="9" width="6" height="6" rx="1"/><rect x="9" y="9" width="6" height="6" rx="1"/></svg>
+          </div>
+          <div>
+            <div class="stat-num">4+</div>
+            <div class="stat-label" data-i18n="stat_modules">Modules</div>
+          </div>
         </div>
         <div class="stat-item">
-          <div class="stat-num">iOS &amp; And</div>
-          <div class="stat-label" data-i18n="stat_platform">Platform</div>
+          <div class="stat-ic">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="1" width="10" height="14" rx="1.5"/></svg>
+          </div>
+          <div>
+            <div class="stat-num">iOS &amp; Android</div>
+            <div class="stat-label" data-i18n="stat_platform">Platform</div>
+          </div>
         </div>
         <div class="stat-item">
-          <div class="stat-num">2017</div>
-          <div class="stat-label" data-i18n="stat_founded">Founded</div>
+          <div class="stat-ic">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="2" width="14" height="12" rx="1.5"/><path d="M1 6h14M5 1v3M11 1v3"/></svg>
+          </div>
+          <div>
+            <div class="stat-num">2017</div>
+            <div class="stat-label" data-i18n="stat_founded">Founded</div>
+          </div>
         </div>
       </div>
     </div>
@@ -103,8 +159,9 @@
     <!-- Hero Visual -->
     <div class="hero-visual">
       <div class="hero-img-wrap">
+        <div class="hero-ring"></div>
         <div class="hero-img-card">
-          <img src="image/top picture.png" draggable="false">
+          <span>LEAN</span>
         </div>
         <div class="hero-badge hero-badge-1">
           <svg width="14" height="14" fill="var(--success)" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
@@ -116,7 +173,7 @@
         </div>
         <div class="hero-badge hero-badge-3">
           <svg width="14" height="14" fill="var(--success)" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
-          Safe & Efficient
+          Safe &amp; Efficient
         </div>
       </div>
     </div>
@@ -208,7 +265,6 @@
       <img src="https://value-flow.se/images/portfolio/screen-6.jpg" alt="Screenshot 6" draggable="false">
       <img src="https://value-flow.se/images/portfolio/screen-7.jpg" alt="Screenshot 7" draggable="false">
       <img src="https://value-flow.se/images/portfolio/screen-8.jpg" alt="Screenshot 8" draggable="false">
-      <!-- Duplicate for seamless loop -->
       <img src="https://value-flow.se/images/portfolio/screen-1.jpg" alt="Screenshot 1" draggable="false">
       <img src="https://value-flow.se/images/portfolio/screen-2.jpg" alt="Screenshot 2" draggable="false">
       <img src="https://value-flow.se/images/portfolio/screen-3.jpg" alt="Screenshot 3" draggable="false">
@@ -479,7 +535,7 @@
     <div class="footer-inner">
       <div>
         <div class="footer-logo">
-          <img src="image/top picture.png" alt="LEAN APP" draggable="false" class="footer-logo-icon">
+          <span class="nav-logo-icon">L</span>
           <span class="footer-logo-text">LEAN<span class="text-accent">APP</span></span>
         </div>
         <p class="footer-desc" data-i18n="footer_desc">Lean Apps walks through process components &amp; transforms them to efficient process.</p>
@@ -505,6 +561,7 @@
 </footer>
 
 <script src="js/main.js"></script>
+<script src="js/lang-data.js"></script>
 <script src="js/lang.js"></script>
 </body>
 </html>

@@ -1,7 +1,5 @@
 /* ============================================
-   LEAN APP — Main JS (Corporate Redesign)
-   Subtle animations only: fade / slide / hover-lift
-   (hover-lift handled in CSS via :hover transitions)
+   LEAN APP — Main JS (Corporate Redesign v2)
    ============================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -9,12 +7,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // ============ PRELOADER ============
   const preloader = document.getElementById('preloader');
   window.addEventListener('load', () => {
-    setTimeout(() => {
-      preloader.classList.add('hidden');
-    }, 900);
+    setTimeout(() => { preloader.classList.add('hidden'); }, 900);
   });
 
-  // ============ HERO BACKGROUND ANIMATION (subtle, teal-tinted) ============
+  // ============ HERO BACKGROUND ANIMATION ============
   const canvas = document.getElementById('bg-canvas');
   if (canvas) {
     const ctx = canvas.getContext('2d');
@@ -88,44 +84,53 @@ document.addEventListener('DOMContentLoaded', () => {
     img.setAttribute('draggable', 'false');
   });
 
-  // ============ NAVBAR SCROLL STATE ============
-  const header = document.querySelector('.site-header');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 40) header.classList.add('scrolled');
-    else header.classList.remove('scrolled');
-  });
+  // ============ HEADER SHADOW ON SCROLL ============
+  const siteHeader = document.querySelector('.site-header');
+  const setHeaderShadow = () => {
+    if (!siteHeader) return;
+    siteHeader.style.boxShadow = window.scrollY > 20
+      ? '0 8px 24px rgba(15,23,42,0.10), 0 2px 6px rgba(15,23,42,0.06)'
+      : 'var(--shadow-md)';
+  };
+  window.addEventListener('scroll', setHeaderShadow);
+  setHeaderShadow();
 
-  // ============ HAMBURGER MENU ============
+  // ============ MOBILE MENU OVERLAY ============
   const burger = document.querySelector('.nav-burger');
-  const navLinks = document.querySelector('.nav-links');
-  burger.addEventListener('click', () => {
-    navLinks.classList.toggle('open');
-    burger.classList.toggle('open');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileMenuClose = document.getElementById('mobile-menu-close');
+
+  function openMobileMenu() {
+    mobileMenu.classList.add('open');
+    document.body.classList.add('menu-open');
+  }
+  function closeMobileMenu() {
+    mobileMenu.classList.remove('open');
+    document.body.classList.remove('menu-open');
+  }
+
+  if (burger) burger.addEventListener('click', openMobileMenu);
+  if (mobileMenuClose) mobileMenuClose.addEventListener('click', closeMobileMenu);
+
+  document.querySelectorAll('.mobile-menu-links a, .mobile-menu-cta').forEach(a => {
+    a.addEventListener('click', closeMobileMenu);
   });
 
-  // ============ SCROLL REVEAL (fade / slide-in) ============
+  // ============ SCROLL REVEAL ============
   const reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .feat-card, .price-card, .feature-item');
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        setTimeout(() => {
-          entry.target.classList.add('visible');
-        }, (entry.target.dataset.delay || 0));
+        setTimeout(() => { entry.target.classList.add('visible'); }, (entry.target.dataset.delay || 0));
         revealObserver.unobserve(entry.target);
       }
     });
   }, { threshold: 0.15 });
   reveals.forEach(el => revealObserver.observe(el));
 
-  document.querySelectorAll('.feature-list .feature-item').forEach((el, i) => {
-    el.dataset.delay = i * 60;
-  });
-  document.querySelectorAll('.features-grid .feat-card').forEach((el, i) => {
-    el.dataset.delay = i * 80;
-  });
-  document.querySelectorAll('.pricing-grid .price-card').forEach((el, i) => {
-    el.dataset.delay = i * 60;
-  });
+  document.querySelectorAll('.feature-list .feature-item').forEach((el, i) => { el.dataset.delay = i * 60; });
+  document.querySelectorAll('.features-grid .feat-card').forEach((el, i) => { el.dataset.delay = i * 80; });
+  document.querySelectorAll('.pricing-grid .price-card').forEach((el, i) => { el.dataset.delay = i * 60; });
 
   // ============ RSV INFINITE SCROLL ============
   const track = document.querySelector('.rsv-screens-track');
@@ -135,15 +140,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ============ CONTACT FORM — EmailJS ============
-  // ─────────────────────────────────────────────────────────────
-  //  STEP 1: Sign up free at https://www.emailjs.com
-  //  STEP 2: Create an Email Service → copy the Service ID below
-  //  STEP 3: Create an Email Template → copy the Template ID below
-  //  STEP 4: Go to Account > API Keys → copy your Public Key below
-  // ─────────────────────────────────────────────────────────────
-  const EMAILJS_PUBLIC_KEY  = '_BMrGw-7W-Qpb_lFN';   // e.g. 'AbCdEfGhIjKlMnOpQ'
-  const EMAILJS_SERVICE_ID  = 'service_w1ljoy9';   // e.g. 'service_abc123'
-  const EMAILJS_TEMPLATE_ID = 'template_2qxa7kb';  // e.g. 'template_xyz456'
+  const EMAILJS_PUBLIC_KEY  = '_BMrGw-7W-Qpb_lFN';
+  const EMAILJS_SERVICE_ID  = 'service_w1ljoy9';
+  const EMAILJS_TEMPLATE_ID = 'template_2qxa7kb';
 
   const form = document.getElementById('contact-form');
   if (form) {
@@ -163,7 +162,6 @@ document.addEventListener('DOMContentLoaded', () => {
         : 'General Enquiry';
       const message = form.querySelector('[name="message"]').value.trim();
 
-      // Validation
       if (!name || !email || !message) {
         showMsg(msg, 'error', 'Please fill in all required fields.');
         return;
@@ -226,11 +224,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ============ SMOOTH NAV CLOSE ON CLICK ============
+  // ============ SMOOTH NAV CLOSE ON CLICK (desktop links) ============
   document.querySelectorAll('.nav-links a').forEach(a => {
-    a.addEventListener('click', () => {
-      navLinks.classList.remove('open');
-    });
+    a.addEventListener('click', closeMobileMenu);
   });
 
 });
