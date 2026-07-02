@@ -63,7 +63,7 @@
   <div class="mobile-menu-top">
     <a href="#" class="nav-logo">
       <!-- TOP LOGO PLACEHOLDER: replace src with your logo file (same as header) -->
-      <img src="image/top picture.png" alt="LEAN APP" class="nav-logo-icon" style="object-fit:contain;background:none;box-shadow:none;">
+      <img src="image/top-logo.png" alt="LEAN APP" class="nav-logo-icon" style="object-fit:contain;background:none;box-shadow:none;">
       <span class="nav-logo-text">LEAN<span class="text-accent">APP</span></span>
     </a>
     <div class="mobile-menu-close" id="mobile-menu-close">
@@ -186,43 +186,16 @@
 
   </div>
 
-  <div class="hero-wave hero-wave-1" aria-hidden="true">
-    <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+  <div class="hero-wave" aria-hidden="true">
+    <svg viewBox="0 0 1440 220" preserveAspectRatio="none">
       <defs>
-        <linearGradient id="heroWaveGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stop-color="#0D9488" stop-opacity="0"/>
-          <stop offset="50%" stop-color="#0D9488" stop-opacity="0.35"/>
+        <linearGradient id="heroWaveFill" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#0D9488" stop-opacity="0.10"/>
           <stop offset="100%" stop-color="#0D9488" stop-opacity="0"/>
         </linearGradient>
       </defs>
-      <path d="M0,70 C280,20 480,100 760,55 C1040,10 1220,90 1440,45"
-            fill="none" stroke="url(#heroWaveGrad)" stroke-width="1.5"/>
-    </svg>
-  </div>
-  <div class="hero-wave hero-wave-2" aria-hidden="true">
-    <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
-      <defs>
-        <linearGradient id="heroWaveGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stop-color="#0D9488" stop-opacity="0"/>
-          <stop offset="50%" stop-color="#0D9488" stop-opacity="0.2"/>
-          <stop offset="100%" stop-color="#0D9488" stop-opacity="0"/>
-        </linearGradient>
-      </defs>
-      <path d="M0,30 C300,90 500,10 800,60 C1080,105 1250,20 1440,75"
-            fill="none" stroke="url(#heroWaveGrad2)" stroke-width="1.2"/>
-    </svg>
-  </div>
-  <div class="hero-wave hero-wave-3" aria-hidden="true">
-    <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
-      <defs>
-        <linearGradient id="heroWaveGrad3" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stop-color="#6366F1" stop-opacity="0"/>
-          <stop offset="50%" stop-color="#6366F1" stop-opacity="0.14"/>
-          <stop offset="100%" stop-color="#6366F1" stop-opacity="0"/>
-        </linearGradient>
-      </defs>
-      <path d="M0,95 C260,50 520,110 780,65 C1060,20 1240,80 1440,40"
-            fill="none" stroke="url(#heroWaveGrad3)" stroke-width="1.2"/>
+      <path d="M0,120 C240,60 480,170 720,110 C960,50 1200,150 1440,90 L1440,220 L0,220 Z"
+            fill="url(#heroWaveFill)"/>
     </svg>
   </div>
 </section>
