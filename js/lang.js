@@ -152,15 +152,15 @@ function applyLang(lang) {
   }
 
   document.querySelectorAll('#lang-toggle, #lang-toggle-mobile').forEach(btn => {
-    const flagEl = btn.querySelector('.lang-flag-emoji');
+    const flagEl = btn.querySelector('.lang-flag-img');
     const lblEl  = btn.querySelector('.lang-label');
     const nextLang = lang === 'en' ? 'sv' : 'en';
     btn.dataset.lang = nextLang;
     if (lang === 'en') {
-      if (flagEl) flagEl.textContent = '🇸🇪';
+      if (flagEl) { flagEl.src = 'image/flag_sv.png'; flagEl.alt = 'Svenska'; }
       if (lblEl) lblEl.textContent = 'Svenska';
     } else {
-      if (flagEl) flagEl.textContent = '🇬🇧';
+      if (flagEl) { flagEl.src = 'image/flag_en.png'; flagEl.alt = 'English'; }
       if (lblEl) lblEl.textContent = 'English';
     }
   });

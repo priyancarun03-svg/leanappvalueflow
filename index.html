@@ -29,14 +29,15 @@
   <header class="site-header">
     <nav class="nav-inner">
       <a href="#" class="nav-logo">
-        <span class="nav-logo-icon">L</span>
+        <!-- TOP LOGO PLACEHOLDER: replace src with your logo file -->
+        <img src="image/top picture.png" alt="LEAN APP" class="nav-logo-icon" style="object-fit:contain;background:none;box-shadow:none;">
         <span class="nav-logo-text">LEAN<span class="text-accent">APP</span></span>
       </a>
 
       <ul class="nav-links">
         <li>
           <button id="lang-toggle" class="lang-btn" data-lang="sv" aria-label="Switch language">
-            <span id="lang-flag-img" class="lang-flag-emoji">🇸🇪</span>
+            <img id="lang-flag-icon" class="lang-flag-img" src="image/flag_sv.png" alt="Svenska">
             <span class="lang-label" data-i18n="nav_lang_label">Svenska</span>
             <svg class="lang-caret" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
           </button>
@@ -61,7 +62,8 @@
 <div class="mobile-menu" id="mobile-menu">
   <div class="mobile-menu-top">
     <a href="#" class="nav-logo">
-      <span class="nav-logo-icon">L</span>
+      <!-- TOP LOGO PLACEHOLDER: replace src with your logo file (same as header) -->
+      <img src="image/top picture.png" alt="LEAN APP" class="nav-logo-icon" style="object-fit:contain;background:none;box-shadow:none;">
       <span class="nav-logo-text">LEAN<span class="text-accent">APP</span></span>
     </a>
     <div class="mobile-menu-close" id="mobile-menu-close">
@@ -70,7 +72,7 @@
   </div>
 
   <button id="lang-toggle-mobile" class="lang-btn lang-btn-mobile" data-lang="sv">
-    <span class="lang-flag-emoji">🇸🇪</span>
+    <img id="lang-flag-icon-mobile" class="lang-flag-img" src="image/flag_sv.png" alt="Svenska">
     <span class="lang-label" data-i18n="nav_lang_label">Svenska</span>
     <svg class="lang-caret" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
   </button>
@@ -157,10 +159,15 @@
 
     <!-- Hero Visual -->
     <div class="hero-visual">
+      <div class="hero-rings">
+        <span class="hero-ring-circle r3"></span>
+        <span class="hero-ring-circle r2"></span>
+        <span class="hero-ring-circle r1"></span>
+      </div>
       <div class="hero-img-wrap">
         <div class="hero-ring"></div>
         <div class="hero-img-card">
-         <img src="image/top picture.png">
+          <img src="image/top picture.png" alt="LEAN APP" class="hero-img-card-img">
         </div>
         <div class="hero-badge hero-badge-1">
           <svg width="14" height="14" fill="var(--success)" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
@@ -177,6 +184,46 @@
       </div>
     </div>
 
+  </div>
+
+  <div class="hero-wave hero-wave-1" aria-hidden="true">
+    <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="heroWaveGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#0D9488" stop-opacity="0"/>
+          <stop offset="50%" stop-color="#0D9488" stop-opacity="0.35"/>
+          <stop offset="100%" stop-color="#0D9488" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+      <path d="M0,70 C280,20 480,100 760,55 C1040,10 1220,90 1440,45"
+            fill="none" stroke="url(#heroWaveGrad)" stroke-width="1.5"/>
+    </svg>
+  </div>
+  <div class="hero-wave hero-wave-2" aria-hidden="true">
+    <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="heroWaveGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#0D9488" stop-opacity="0"/>
+          <stop offset="50%" stop-color="#0D9488" stop-opacity="0.2"/>
+          <stop offset="100%" stop-color="#0D9488" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+      <path d="M0,30 C300,90 500,10 800,60 C1080,105 1250,20 1440,75"
+            fill="none" stroke="url(#heroWaveGrad2)" stroke-width="1.2"/>
+    </svg>
+  </div>
+  <div class="hero-wave hero-wave-3" aria-hidden="true">
+    <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="heroWaveGrad3" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#6366F1" stop-opacity="0"/>
+          <stop offset="50%" stop-color="#6366F1" stop-opacity="0.14"/>
+          <stop offset="100%" stop-color="#6366F1" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+      <path d="M0,95 C260,50 520,110 780,65 C1060,20 1240,80 1440,40"
+            fill="none" stroke="url(#heroWaveGrad3)" stroke-width="1.2"/>
+    </svg>
   </div>
 </section>
 
@@ -534,7 +581,8 @@
     <div class="footer-inner">
       <div>
         <div class="footer-logo">
-          <span class="nav-logo-icon">L</span>
+          <!-- FOOTER LOGO: replace src below with your provided logo file (keeps .nav-logo-icon sizing/styling) -->
+          <img src="image/top picture.png" alt="LEAN APP" class="nav-logo-icon" style="object-fit:contain;background:none;box-shadow:none;">
           <span class="footer-logo-text">LEAN<span class="text-accent">APP</span></span>
         </div>
         <p class="footer-desc" data-i18n="footer_desc">Lean Apps walks through process components &amp; transforms them to efficient process.</p>
