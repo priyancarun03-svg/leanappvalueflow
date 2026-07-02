@@ -388,6 +388,10 @@ footer { background: var(--card); border-top: 1px solid var(--border); padding: 
   .hero-btns  { order: 5; }
   .hero-stats { order: 6; }
 }
+@media (max-width: 640px) {
+  .hero-grid, .hero-tag, .hero-h1, .hero-p { text-align: left !important; }
+  .hero-btns, .hero-stats { justify-content: flex-start !important; }
+}
 
 /* ===== ADDITIVE: Mobile menu spacing refinement to match reference ===== */
 @media (max-width: 900px) {
