@@ -318,12 +318,14 @@ footer { background: var(--card); border-top: 1px solid var(--border); padding: 
   .contact-form { padding: var(--sp-3); }
   .video-play-btn { flex-direction: column; text-align: center; padding: var(--sp-3); border-radius: var(--radius-lg); }
 
-  /* ===== PHONE-ONLY: hero visual sizing/badge placement to match reference exactly ===== */
-  #hero { padding-top: calc(var(--sp-6) + 16px); }
+  /* ===== PHONE-ONLY: match reference layout exactly (left-aligned, row buttons) ===== */
+  #hero { padding: calc(var(--sp-6) + 16px) var(--sp-2) var(--sp-5); }
+  .hero-grid { text-align: left; }
+  .hero-text { align-items: flex-start; text-align: left; }
   .hero-tag { margin-bottom: var(--sp-2); }
-  .hero-h1 { margin-bottom: var(--sp-2); }
-  .hero-p { margin-bottom: var(--sp-3); max-width: 320px; }
-  .hero-visual { margin: var(--sp-2) 0 var(--sp-3) !important; }
+  .hero-h1 { margin-bottom: var(--sp-2); font-size: clamp(1.9rem,8vw,2.3rem); text-align: left; }
+  .hero-p { margin: 0 0 var(--sp-3); max-width: 100%; text-align: left; font-size: 0.9rem; }
+  .hero-visual { margin: var(--sp-2) auto var(--sp-3) !important; }
   .hero-img-wrap { width: 200px; height: 200px; }
   .hero-img-card { width: 128px; height: 128px; }
   .hero-rings { width: 260px; height: 260px; }
@@ -335,8 +337,9 @@ footer { background: var(--card); border-top: 1px solid var(--border); padding: 
   .hero-badge-1 { left: -34px; top: 4px; }
   .hero-badge-2 { right: -30px; bottom: 46%; }
   .hero-badge-3 { left: -18px; bottom: 6px; }
-  .hero-btns { gap: var(--sp-1); }
-  .hero-stats { margin-top: var(--sp-1); }
+  .hero-btns { flex-direction: row; align-items: stretch; width: 100%; gap: var(--sp-1); justify-content: flex-start; }
+  .hero-btns .btn-primary, .hero-btns .btn-ghost { flex: 1; padding: 12px 10px; font-size: 0.8rem; justify-content: center; }
+  .hero-stats { justify-content: flex-start; margin-top: var(--sp-1); }
 }
 @media (max-width: 400px) {
   .hero-h1 { font-size: 1.9rem; }
